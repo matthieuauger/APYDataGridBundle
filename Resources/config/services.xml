@@ -49,12 +49,21 @@
             <argument type="service" id="annotation_reader" />
         </service>
 
+        <service id="grid.metadata.driver.yaml" class="APY\DataGridBundle\Grid\Mapping\Driver\Yaml">
+            <argument type="service" id="kernel" />
+        </service>
+
         <service id="grid.mapping.manager" class="APY\DataGridBundle\Grid\Mapping\Metadata\Manager" scope="prototype">
             <argument type="service" id="form.factory"/>
             <call method="addDriver">
                 <argument type="service" id="grid.metadata.driver.annotation" />
                 <argument>1</argument>
             </call>
+            <call method="addDriver">
+                <argument type="service" id="grid.metadata.driver.yaml" />
+                <argument>2</argument>
+            </call>
+
         </service>
 
         <service id="grid.translation_extractor" class="APY\DataGridBundle\Translation\ColumnTitleAnnotationTranslationExtractor" public="false">
