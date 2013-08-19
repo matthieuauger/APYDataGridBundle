@@ -55,10 +55,12 @@
 
         <service id="grid.mapping.manager" class="APY\DataGridBundle\Grid\Mapping\Metadata\Manager" scope="prototype">
             <argument type="service" id="form.factory"/>
+            <!--
+            // Quick Hack. We should be able to configure which drivers we want
             <call method="addDriver">
                 <argument type="service" id="grid.metadata.driver.annotation" />
                 <argument>1</argument>
-            </call>
+            </call> -->
             <call method="addDriver">
                 <argument type="service" id="grid.metadata.driver.yaml" />
                 <argument>2</argument>
